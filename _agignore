@@ -1,0 +1,7 @@
+*~
+.*.swp
+cctree.out
+cscope.*out
+cscope.files
+ctags.files
+tags

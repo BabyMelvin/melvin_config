@@ -1,0 +1,37 @@
+[user]
+	name = caohang
+	email = melvin_cao@sileadinc.com
+
+[alias]
+    dh = diff HEAD
+    dc = diff --cached
+    tags = tag -l -n
+        logs = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short
+        log3 = log --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short --no-merges
+    logd = log --numstat --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset@%ad %Cgreen%s%Creset' --date=short --no-merges HEAD
+        log2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+        st = status -s -b
+    sts = status -s -b --untracked-files=no
+        br = branch -vv
+        cp = !git commit -F commit.log  && git push
+    datetag = !git tag `date \"+%Y%m%d%H%M\"`
+    cleanbase = !git clean -df && git clean . && git pull
+[color]
+        ui = true
+[color "branch"]
+    current = blue bold
+    local = green bold
+    remote = cyan bold
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = green bold
+    changed = blue bold
+    untracked = red bold
+[push]
+        default = upstream
+
