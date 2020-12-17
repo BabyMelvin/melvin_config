@@ -90,6 +90,7 @@ share 文件
 
 1.查看支持
 
+```
 $ls script/tags.sh
 $make ARCH=arm tags
 $make ARCH=arm cscope
