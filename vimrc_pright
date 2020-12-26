@@ -123,86 +123,88 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
-call plug#begin('~/.vim/plugged')
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" My plugins
-" color scheme
-Plug 'vim-scripts/peaksea'
-Plug 'vim-scripts/blackboard.vim'
+call vundle#begin()
+" call vundle#begin(~/.vim/bundle/Vundle.vim)
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-scripts/peaksea'
+Plugin 'vim-scripts/blackboard.vim'
 
 " documents
-Plug 'pright/vimcdoc'
-Plug 'vim-scripts/stlrefvim'
+Plugin 'pright/vimcdoc'
+Plugin 'vim-scripts/stlrefvim'
 
 " general utils
-"Plug 'vim-scripts/Vimball'
-Plug 'vim-scripts/grep.vim'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/YankRing.vim'
-Plug 'Lokaltog/vim-easymotion'
-"Plug 'Lokaltog/vim-powerline'
-Plug 'vim-airline/vim-airline'
-"plug 'vim-airline/vim-airline-themes'
-"Plug 'vim-scripts/genutils' | Plug 'vim-scripts/lookupfile'
-"Plug 'vim-scripts/Command-T'
-"Plug 'vim-scripts/L9' | Plug 'vim-scripts/FuzzyFinder'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/visSum.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'kshenoy/vim-signature'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-Plug 'benmills/vimux'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'edkolev/promptline.vim'
-Plug 'edkolev/tmuxline.vim'
-Plug 'dkprice/vim-easygrep'
-Plug 'lfv89/vim-interestingwords'
+"Plugin 'vim-scripts/Vimball'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+"plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-scripts/genutils' | Plugin 'vim-scripts/lookupfile'
+"Plugin 'vim-scripts/Command-T'
+"Plugin 'vim-scripts/L9' | Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'vim-scripts/visSum.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kshenoy/vim-signature'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-obsession' | Plugin 'dhruvasagar/vim-prosession'
+Plugin 'mattn/webapi-vim' | Plugin 'mattn/gist-vim'
+Plugin 'benmills/vimux'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'lfv89/vim-interestingwords'
 
 " programming
-Plug 'vim-scripts/TaskList.vim'
-Plug 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
-"Plug 'pright/c.vim'
-"Plug 'mbbill/echofunc'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'pright/CCTree'
-Plug 'pright/stl-tags'
-Plug 'pright/glibc-tags'
-Plug 'pright/mytags'
-Plug 'vim-scripts/OmniCppComplete', { 'for': ['c', 'cpp'] }
-Plug 'davidhalter/jedi-vim', { 'do': 'git submodule update --init', 'for': 'python' }
-"Plug 'vim-scripts/clang-complete'
-Plug 'Valloric/YouCompleteMe'
-"Plug 'vim-scripts/code_complete'
-Plug 'vim-scripts/pep8'
-Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
-Plug 'pright/vim-snippets'
-"Plug 'drmingdrmer/xptemplate'
-"Plug 'vim-scripts/UltiSnips'
-"Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-"Plug 'vim-scripts/minibufexpl.vim'
-"Plug 'vim-scripts/bufexplorer.zip'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'vim-scripts/taglist.vim'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-"Plug 'pright/winmanager--Fox'
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'mattn/emmet-vim'
-"Plug 'scrooloose/syntastic'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'w0rp/ale'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'rubberduck203/aosp-vim'
-"Plug 'brookhong/k.vim'
+Plugin 'vim-scripts/TaskList.vim'
+Plugin 'vim-scripts/a.vim', { 'for': ['c', 'cpp'] }
+"Plugin 'pright/c.vim'
+"Plugin 'mbbill/echofunc'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'pright/CCTree'
+Plugin 'pright/stl-tags'
+Plugin 'pright/glibc-tags'
+Plugin 'pright/mytags'
+Plugin 'vim-scripts/OmniCppComplete', { 'for': ['c', 'cpp'] }
+Plugin 'davidhalter/jedi-vim', { 'do': 'git submodule update --init', 'for': 'python' }
+"Plugin 'vim-scripts/clang-complete'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'vim-scripts/code_complete'
+Plugin 'vim-scripts/pep8'
+Plugin 'MarcWeber/vim-addon-mw-utils' | Plugin 'tomtom/tlib_vim' | Plugin 'garbas/vim-snipmate'
+Plugin 'pright/vim-snippets'
+"Plugin 'drmingdrmer/xptemplate'
+"Plugin 'vim-scripts/UltiSnips'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
+"Plugin 'vim-scripts/minibufexpl.vim'
+"Plugin 'vim-scripts/bufexplorer.zip'
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+"Plugin 'pright/winmanager--Fox'
+Plugin 'elzr/vim-json', { 'for': 'json' }
+Plugin 'godlygeek/tabular' | Plugin 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plugin 'mattn/emmet-vim'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'w0rp/ale'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'rubberduck203/aosp-vim'
+"Plugin 'brookhong/k.vim'
 
-call plug#end()
+call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color
