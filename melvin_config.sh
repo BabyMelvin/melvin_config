@@ -5,10 +5,11 @@
 set -euo pipefail
 
 # bin to install, need absolute path
-BIN_PATH=$HOME/local
+BIN_PATH=$HOME/.local
+EXE_PATH=$BIN_PATH/${USER}_config
+
 COLOR_RES='\E[0m'
 INSTALL_VIM=
-EXE_PATH=
 
 function help()
 {
@@ -55,8 +56,8 @@ function log_error()
 
 function install_vim()
 {
-    [ -e $HOME/vim ] || mkdir $BIN_PATH/vim
-    [ -e $BIN_PATH/vim/configure ] || git clone git@github.com:vim/vim.git $BIN_PATH/vim
+    [ -e $BIN_PATH/vim ] || mkdir $BIN_PATH/vim
+    [ -e $BIN_PATH/vim/configure ] || git clone https://github.com/vim/vim.git $BIN_PATH/vim
     cd $BIN_PATH/vim/
     # need 2Python and python3
     ./configure --with-features=huge --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu --enable-gui=gtk2 --enable-cscope --prefix=$BIN_PATH
@@ -66,10 +67,10 @@ function install_vim()
 
 # the path to install
 [ -e $BIN_PATH ] || mkdir $BIN_PATH
+[ -e $EXE_PATH ] || mkdir $EXE_PATH
 
 # copy all git to $HOME/.local
-EXE_PATH=$BIN_PATH/${USER}_config
-[ -e $BIN_PATH ] && cp -rf  ../melvin-config $EXE_PATH 
+[ -e $BIN_PATH ] && cp -rf  * $EXE_PATH
 [ -e $BIN_PATH/${USER}_config ] && cd $EXE_PATH
 
 log_info "Current path:`pwd`"
@@ -78,17 +79,23 @@ if [ $BIN_PATH/${USER}_config != `pwd` ];then
    exit
 fi
 
-# install vim
+log_warn "install vim"
+[ -e $BIN_PATH/bin/vim ] || install_vim
 install_vim
+
+source ~/.profile
+
 cd $EXE_PATH
+log_warn "current dir: `pwd`"
 
 # install bundle vim
 [ -e  ~/.vim/bundle/Vundle.vim ] || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 
 # create soft links
 [ -e ~/.gitconfig ] || ln -s $BIN_PATH/${USER}_config/gitconfig ~/.gitconfig
-[ -e ~/.vimrc ] || ln -s $BIN_PATH/${USER}_config/.vimrc ~/.vimrc
-log_info "curdir: `pwd`"
+[ -e ~/.vimrc ] || ln -s $BIN_PATH/${USER}_config/vimrc_pright ~/.vimrc
+
+log_info "current dir: `pwd`"
 [ -e $HOME/.ycm_extra_conf.py ] || ln -s $BIN_PATH/${USER}_config/ycm_extra_conf ~/.ycm_extra_conf.py
 
 # install vim plugin
