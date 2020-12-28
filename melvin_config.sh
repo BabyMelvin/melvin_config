@@ -79,24 +79,21 @@ if [ $BIN_PATH/${USER}_config != `pwd` ];then
    exit
 fi
 
-log_warn "install vim"
+log_info "install vim"
 [ -e $BIN_PATH/bin/vim ] || install_vim
-install_vim
 
 source ~/.profile
 
 cd $EXE_PATH
-log_warn "current dir: `pwd`"
+log_info "current dir: `pwd`"
 
 # install bundle vim
 [ -e  ~/.vim/bundle/Vundle.vim ] || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 
 # create soft links
-[ -e ~/.gitconfig ] || ln -s $BIN_PATH/${USER}_config/gitconfig ~/.gitconfig
-[ -e ~/.vimrc ] || ln -s $BIN_PATH/${USER}_config/vimrc_pright ~/.vimrc
-
-log_info "current dir: `pwd`"
-[ -e $HOME/.ycm_extra_conf.py ] || ln -s $BIN_PATH/${USER}_config/ycm_extra_conf ~/.ycm_extra_conf.py
+rm ~/.gitconfig && ln -s $BIN_PATH/${USER}_config/gitconfig ~/.gitconfig
+rm ~/.vimrc && ln -s $BIN_PATH/${USER}_config/vimrc_pright ~/.vimrc
+rm $HOME/.ycm_extra_conf.py && ln -s $BIN_PATH/${USER}_config/ycm_extra_conf ~/.ycm_extra_conf.py
 
 # install vim plugin
 vim -c "PluginInstall"
