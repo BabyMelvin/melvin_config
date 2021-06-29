@@ -6,16 +6,18 @@
     dh = diff HEAD
     dc = diff --cached
     tags = tag -l -n
-        logs = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short
-        log3 = log --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short --no-merges
+    logs = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short
+    log3 = log --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset%C(yellow)@%ad%Creset | %s' --date=short --no-merges
     logd = log --numstat --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset@%ad %Cgreen%s%Creset' --date=short --no-merges HEAD
-        log2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-        st = status -s -b
+    log2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    st = status -s -b
     sts = status -s -b --untracked-files=no
-        br = branch -vv
-        cp = !git commit -F commit.log  && git push
+    br = branch -vv
+    cp = !git commit -F commit.log  && git push
     datetag = !git tag `date \"+%Y%m%d%H%M\"`
     cleanbase = !git clean -df && git clean . && git pull
+    lg = log --pretty=format:'%C(yellow)%h%Creset-%C(bold blue)%an%Creset-%s%C(red)(%cd)'
+    llg = log --pretty=format:'%C(yellow)%h%Creset-%C(bold blue)%an%Creset-%s%C(red)(%cd)' --stat
 [color]
         ui = true
 [color "branch"]
